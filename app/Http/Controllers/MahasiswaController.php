@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kelas;
 use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 
@@ -9,8 +10,9 @@ class MahasiswaController extends Controller
 {
     public function index()
     {
-        $mahasiswa = Mahasiswa::all();
-        return view('mahasiswa', compact('mahasiswa'));
+        $mahasiswa = Mahasiswa::with('kelas')->get();
+        $kelas = Kelas::all();
+        return view('mahasiswa', compact(['mahasiswa', 'kelas']));
     }
     public function find(Request $request)
     {
@@ -23,11 +25,14 @@ class MahasiswaController extends Controller
         $validated = $request->validate([
             'nama' => 'required|string',
             'nim' => 'required|string',
+            'kelas' => 'required|integer',
         ]);
+
         // Insert Data
         $mahasiswa = Mahasiswa::create([
             'nama' => $validated['nama'],
-            'nim' => $validated['nim']
+            'nim' => $validated['nim'],
+            'class_id' => $validated['kelas']
         ]);
         
         return redirect('/mahasiswa');

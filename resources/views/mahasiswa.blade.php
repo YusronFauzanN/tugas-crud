@@ -33,6 +33,17 @@
                     </label>
                     <input type="text" name="nim" placeholder="NIM" class="input input-bordered w-full max-w-xs" required/>
                   </div>
+                  <div class="form-control w-full max-w-xs">
+                    <label class="label">
+                      <span class="label-text">Kelas</span>
+                    </label>
+                    <select class="select select-bordered w-full max-w-xs" name="kelas">
+                      <option disabled selected>Pilih Kelas</option>
+                      @foreach ($kelas as $k)
+                        <option value="{{$k->id}}">{{ $k->name }}</option>
+                      @endforeach
+                    </select>
+                  </div>
                   <button type="submit" class="btn mt-3 ">Tambah</button>
                 </form>
                 {{-- End Form --}}
@@ -45,6 +56,7 @@
                   <th></th>
                   <th>Nama</th>
                   <th>NIM</th>
+                  <th>KELAS</th>
                   <th class="">AKSI</th>
                 </tr>
               </thead>
@@ -55,6 +67,7 @@
                         <th>{{$loop->iteration}}</th>
                         <td>{{$m->nama}}</td>
                         <td>{{$m->nim}}</td>
+                        <td>{{$m->kelas->name}}</td>
                         <td class="inline-flex">
                           <a href="{{ route('mahasiswa.edit', ['id' => $m->id]) }}">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
