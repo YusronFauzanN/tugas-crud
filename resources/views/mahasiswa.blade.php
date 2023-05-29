@@ -64,7 +64,7 @@
                 <!-- row 1 -->
                 @foreach ($mahasiswa as $m)
                     <tr>
-                        <th>{{$loop->iteration}}</th>
+                        <td>{{$loop->iteration}}</td>
                         <td>{{$m->nama}}</td>
                         <td>{{$m->nim}}</td>
                         <td>{{$m->kelas->name}}</td>

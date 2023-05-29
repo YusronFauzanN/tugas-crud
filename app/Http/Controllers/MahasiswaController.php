@@ -40,8 +40,9 @@ class MahasiswaController extends Controller
     }
     public function edit($id)
     {
+        $kelas = Kelas::all();
         $mahasiswa = Mahasiswa::find($id);
-        return view('mahasiswa-edit', compact('mahasiswa'));
+        return view('mahasiswa-edit', compact(['mahasiswa', 'kelas']));
     }
     public function update(Request $request, $id){
         // Validating

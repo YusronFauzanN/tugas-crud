@@ -19,6 +19,17 @@
                     </label>
                     <input type="text" name="nim" placeholder="NIM" class="input input-bordered w-full max-w-xs" value="{{$mahasiswa->nim}}" required/>
                   </div>
+                  <div class="form-control w-full max-w-xs">
+                    <label class="label">
+                      <span class="label-text">Kelas</span>
+                    </label>
+                    <select class="select select-bordered w-full max-w-xs" name="kelas">
+                      <option disabled selected>Pilih Kelas</option>
+                      @foreach ($kelas as $k)
+                        <option value="{{$k->id}}" @if ($mahasiswa->kelas->id == $k->id) selected @endif>{{ $k->name }}</option>
+                      @endforeach
+                    </select>
+                  </div>
                   <button type="submit" class="btn mt-3 ">Update</button>
                   <a href="/mahasiswa" class="btn mt-3 ">Batal</a>
                 </form>

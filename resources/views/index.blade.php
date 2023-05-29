@@ -16,8 +16,8 @@
             <div class="flex-none">
               <ul class="menu menu-horizontal px-1">
                 <li><a href="{{url('mahasiswa')}}" class="text-white">Mahasiswa</a></li>
-                {{-- <li><a href="{{url('dosen')}}" class="text-white">Dosen</a></li>
-                <li><a href="{{url('mata-kuliah')}}" class="text-white">Mata Kuliah</a></li> --}}
+                <li><a href="{{url('kelas')}}" class="text-white">Kelas</a></li>
+                {{-- {{-- <li><a href="{{url('dosen')}}" class="text-white">Dosen</a></li> --}}
               </ul>
             </div>
           </div>
